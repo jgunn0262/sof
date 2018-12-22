@@ -734,12 +734,12 @@ static inline int ssp_set_config(struct dai *dai,
 	ssp_write(dai, SSTSA, sstsa);
 	ssp_write(dai, SSRSA, ssrsa);
 
-	trace_ssp("ssp_set_config(), sscr0 = %u, sscr1 = %u, ssto = %u, "
-		  "sspsp = %u", sscr0, sscr1, ssto, sspsp);
-	trace_ssp("ssp_set_config(), sscr2 = %u, sspsp2 = %u, sscr3 = %u, "
-		  "ssioc = %u",
+	trace_ssp("ssp_set_config(), sscr0 = 0x%x, sscr1 = 0x%x, ssto = 0x%x, "
+		  "sspsp = 0x%x", sscr0, sscr1, ssto, sspsp);
+	trace_ssp("ssp_set_config(), sscr2 = 0x%x, sspsp2 = 0x%x, sscr3 = 0x%x, "
+		  "ssioc = 0x%x",
 		  sscr2, sspsp2, sscr3, ssioc);
-	trace_ssp("ssp_set_config(), ssrsa = %u, sstsa = %u", ssrsa, sstsa);
+	trace_ssp("ssp_set_config(), ssrsa = 0x%x, sstsa = 0x%x", ssrsa, sstsa);
 
 	/* TODO: move this into M/N driver */
 	mn_reg_write(0x0, mdivc);
