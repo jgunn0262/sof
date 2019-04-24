@@ -43,6 +43,13 @@
 #define BDW_DRAM_HOST_OFFSET	0x00000000
 #define BDW_DRAM_SIZE		(640 * 1024)
 
+#define HKY_IRAM_BASE		0xE8080000
+#define HKY_IRAM_HOST_OFFSET	0x00000000
+#define HKY_IRAM_SIZE		(48 * 1024)
+#define HKY_DRAM_BASE		0xE8058000
+#define HKY_DRAM_HOST_OFFSET	0x00000000
+#define HKY_DRAM_SIZE		(160 * 1024)
+
 static int get_mem_zone_type(struct image *image, Elf32_Shdr *section)
 {
 	const struct adsp *adsp = image->adsp;
@@ -546,5 +553,23 @@ const struct adsp machine_bdw = {
 		},
 	},
 	.machine_id = MACHINE_BROADWELL,
+	.write_firmware = simple_write_firmware,
+};
+
+const struct adsp machine_hky = {
+	.name = "hky",
+	.mem_zones = {
+		[SOF_FW_BLK_TYPE_IRAM] = {
+			.base = HKY_IRAM_BASE,
+			.size = HKY_IRAM_SIZE,
+			.host_offset = HKY_IRAM_HOST_OFFSET,
+		},
+		[SOF_FW_BLK_TYPE_DRAM] = {
+			.base = HKY_DRAM_BASE,
+			.size = HKY_DRAM_SIZE,
+			.host_offset = HKY_DRAM_HOST_OFFSET,
+		},
+	},
+	.machine_id = MACHINE_HIKEY,
 	.write_firmware = simple_write_firmware,
 };

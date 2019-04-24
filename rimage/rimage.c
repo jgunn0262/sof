@@ -35,6 +35,7 @@ static const struct adsp *machine[] = {
 	&machine_sue,
 	&machine_kbl,
 	&machine_skl,
+	&machine_hky,
 };
 
 static void usage(char *name)
