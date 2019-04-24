@@ -10,6 +10,8 @@ elseif(CONFIG_SUECREEK)
 	add_subdirectory(suecreek)
 elseif(CONFIG_ICELAKE)
 	add_subdirectory(icelake)
+elseif(CONFIG_HIKEY)
+	add_subdirectory(hikey)
 endif()
 
 if(CONFIG_CAVS)

@@ -1,2 +1,16 @@
+if(CONFIG_BAYTRAIL
+   OR CONFIG_CHERRYTRAIL
+   OR CONFIG_HASWELL
+   OR CONFIG_BROADWELL
+   OR CONFIG_APOLLOLAKE
+   OR CONFIG_CANNONLAKE
+   OR CONFIG_SUECREEK
+   OR CONFIG_ICELAKE)
 add_subdirectory(intel)
+endif()
+
 add_subdirectory(dw)
+
+if(CONFIG_HIKEY)
+add_subdirectory(hikey)
+endif()

@@ -114,6 +114,12 @@ config ICELAKE
 	help
 		Select if your target platform is Icelake-compatible
 
+config HIKEY
+	bool "Build for Hikey960"
+	select TASK_HAVE_PRIORITY_LOW
+	help
+	  Select if your target platform is Hikey960-compatible
+
 endchoice
 
 config CAVS
@@ -131,6 +137,7 @@ config FIRMWARE_SHORT_NAME
 	default "cnl" if CANNONLAKE
 	default "sue" if SUECREEK
 	default "icl" if ICELAKE
+	default "hky" if HIKEY
 	default ""
 	help
 	  3-characters long firmware identifer
