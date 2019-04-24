@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SUPPORTED_PLATFORMS=(byt cht bdw hsw apl cnl sue icl skl kbl)
+SUPPORTED_PLATFORMS=(byt cht bdw hsw apl cnl sue icl skl kbl hky)
 BUILD_ROM=no
 BUILD_DEBUG=no
 BUILD_FORCE_UP=no
@@ -222,6 +222,15 @@ do
 		HOST="xtensa-cnl-elf"
 		XTENSA_TOOLS_VERSION="RF-2016.4-linux"
 		HAVE_ROM='yes'
+	fi
+	if [ $j == "hky" ]
+	then
+		PLATFORM="hikey"
+		ARCH="xtensa"
+		XTENSA_CORE="hifi3_hikey960"
+		ROOT="$pwd/../xtensa-root/xtensa-hky-elf"
+		HOST="xtensa-hky-elf"
+		XTENSA_TOOLS_VERSION="RG-2017.5-linux"
 	fi
 	if [ $XTENSA_TOOLS_ROOT ]
 	then
